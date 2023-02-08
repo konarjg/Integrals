@@ -244,41 +244,48 @@ public static class Taylor
     public static Polynomial ToTaylor(string formula, long k = 0, long n = 4)
     {
         formula = formula.Replace(" ", "");
+        Polynomial a = new("1");
 
+        if (formula.Contains('*'))
+        {
+            a = new Polynomial(formula.Split('*', StringSplitOptions.RemoveEmptyEntries)[0]);
+            formula = formula.Split('*', StringSplitOptions.RemoveEmptyEntries)[1];
+        }
+        
         switch (formula)
         {
             case "lnx":
-                return Ln(k, n);
+                return a * Ln(k, n);
 
             case "e^x":
-                return Exp(k, n);
+                return a * Exp(k, n);
 
             case "sinx":
-                return Sin(k, n);
+                return a * Sin(k, n);
 
             case "cosx":
-                return Cos(k, n);
+                return a * Cos(k, n);
 
             case "tgx":
-                return Tg(k, n);
+                return a * Tg(k, n);
 
             case "ctgx":
-                return Ctg(k, n);
+                return a * Ctg(k, n);
 
             case "arcsinx":
-                return Arcsin(k, n);
+                return a * Arcsin(k, n);
 
             case "arccosx":
-                return Arccos(k, n);
+                return a * Arccos(k, n);
 
             case "arctgx":
-                return Arctg(k, n);
+                return a * Arctg(k, n);
 
             case "arcctgx":
-                return Arcctg(k, n);
+                return a * Arcctg(k, n);
         }
 
-        return new Polynomial(formula);
+        return a * new Polynomial(formula);
     }
 
     public static string FromTaylor(Polynomial taylor, long k = 0, long n = 4)
