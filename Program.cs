@@ -2,6 +2,16 @@
 var formula = Console.ReadLine();
 
 Console.Clear();
-Console.WriteLine("f(x) = {0}", formula);
-Console.WriteLine("f'(x) = {0}", Integrals.Derivative(formula));
-Console.WriteLine("|f(x) dx = {0}", Integrals.Integral(formula));
+Console.Write("Podaj górne ograniczenie całki: b = ");
+var b = Complex.Parse(Console.ReadLine());
+
+Console.Clear();
+
+Console.Write("Podaj górne ograniczenie całki: a = ");
+var a = Complex.Parse(Console.ReadLine());
+
+Console.Clear();
+
+Console.WriteLine("{0}              {0}   ", b);
+Console.WriteLine("|{0} dx = {1}| = {2}", formula, Integrals.Integral(formula, 9), Integrals.Integral(formula, a, b, 9));
+Console.WriteLine("{0}              {0}   ", a);
