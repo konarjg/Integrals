@@ -281,37 +281,40 @@ public static class Taylor
         var a = PolynomialUtils.ModifierOfElement(elements[0]).Real;
         var b = PolynomialUtils.PowerOfElement(elements[0]);
 
-        switch (elements[0])
+        for (int j = -1; j <= 1; ++j)
         {
-            case string x when (a % Ln(k, n - 1).Modifiers[0].Real) == 0 && b % Ln(k, n - 1).Powers[0] == 0:
-                return a / Ln(k, n - 1).Modifiers[0].Real + " * ln x";
+            switch (elements[0])
+            {
+                case string x when (a % Ln(k, n - 1).Modifiers[0].Real) == 0 && b % Ln(k, n - 1).Powers[0] == 0:
+                    return a / Ln(k, n - 1).Modifiers[0].Real + " * ln x";
 
-            case string x when (a % Exp(k, n - 1).Modifiers[0].Real) == 0 && b % Exp(k, n - 1).Powers[0] == 0:
-                return a / Exp(k, n - 1).Modifiers[0].Real + " * exp x";
+                case string x when (a % Exp(k, n - 1).Modifiers[0].Real) == 0 && b % Exp(k, n - 1).Powers[0] == 0:
+                    return a / Exp(k, n - 1).Modifiers[0].Real + " * exp x";
 
-            case string x when (a % Sin(k, n - 1).Modifiers[0].Real) == 0 && b % Sin(k, n - 1).Powers[0] == 0:
-                return a / Sin(k, n - 1).Modifiers[0].Real + " * sin x";
+                case string x when (a % Sin(k, n - 1).Modifiers[0].Real) == 0 && b % Sin(k, n - 1).Powers[0] == 0:
+                    return a / Sin(k, n - 1).Modifiers[0].Real + " * sin x";
 
-            case string x when (a % Cos(k, n - 1).Modifiers[0].Real) == 0 && b % Cos(k, n - 1).Powers[0] == 0:
-                return a / Cos(k, n - 1).Modifiers[0].Real + " * cos x";
+                case string x when (a % Cos(k, n - 1).Modifiers[0].Real) == 0 && b % Cos(k, n - 1).Powers[0] == 0:
+                    return a / Cos(k, n - 1).Modifiers[0].Real + " * cos x";
 
-            case string x when (a % Tg(k, n - 1).Modifiers[0].Real) == 0 && b % Tg(k, n - 1).Powers[0] == 0:
-                return a / Tg(k, n - 1).Modifiers[0].Real + " * tg x";
+                case string x when (a % Tg(k, n - 1).Modifiers[0].Real) == 0 && b % Tg(k, n - 1).Powers[0] == 0:
+                    return a / Tg(k, n - 1).Modifiers[0].Real + " * tg x";
 
-            case string x when (a % Ctg(k, n - 1).Modifiers[0].Real) == 0 && b % Ctg(k, n - 1).Powers[0] == 0:
-                return a / Ctg(k, n - 1).Modifiers[0].Real + " * ctg x";
+                case string x when (a % Ctg(k, n - 1).Modifiers[0].Real) == 0 && b % Ctg(k, n - 1).Powers[0] == 0:
+                    return a / Ctg(k, n - 1).Modifiers[0].Real + " * ctg x";
 
-            case string x when (a % Arcsin(k, n - 1).Modifiers[0].Real) == 0 && b % Arcsin(k, n - 1).Powers[0] == 0:
-                return a / Arcsin(k, n - 1).Modifiers[0].Real + " * arcsin x";
+                case string x when (a % Arcsin(k, n - 1).Modifiers[0].Real) == 0 && b % Arcsin(k, n - 1).Powers[0] == 0:
+                    return a / Arcsin(k, n - 1).Modifiers[0].Real + " * arcsin x";
 
-            case string x when (a % Arccos(k, n - 1).Modifiers[0].Real) == 0 && b % Arccos(k, n - 1).Powers[0] == 0:
-                return a / Arccos(k, n - 1).Modifiers[0].Real + " * arccos x";
+                case string x when (a % Arccos(k, n - 1).Modifiers[0].Real) == 0 && b % Arccos(k, n - 1).Powers[0] == 0:
+                    return a / Arccos(k, n - 1).Modifiers[0].Real + " * arccos x";
 
-            case string x when (a % Arctg(k, n - 1).Modifiers[0].Real) == 0 && b % Arctg(k, n - 1).Powers[0] == 0:
-                return a / Arctg(k, n - 1).Modifiers[0].Real + " * arctg x";
+                case string x when (a % Arctg(k, n - 1).Modifiers[0].Real) == 0 && b % Arctg(k, n - 1).Powers[0] == 0:
+                    return a / Arctg(k, n - 1).Modifiers[0].Real + " * arctg x";
 
-            case string x when (a % Arcctg(k, n - 1).Modifiers[0].Real) == 0 && b % Arcctg(k, n - 1).Powers[0] == 0:
-                return a / Arcctg(k, n - 1).Modifiers[0].Real + " * arcctg x";
+                case string x when (a % Arcctg(k, n - 1).Modifiers[0].Real) == 0 && b % Arcctg(k, n - 1).Powers[0] == 0:
+                    return a / Arcctg(k, n - 1).Modifiers[0].Real + " * arcctg x";
+            }
         }
 
         switch (elements[0])
